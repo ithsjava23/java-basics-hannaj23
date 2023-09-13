@@ -1,8 +1,8 @@
 package org.example;
 
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 import java.util.Arrays;
+import java.util.Dictionary;
 public class App {
 
     public static void main(String[] args) {
@@ -26,7 +26,7 @@ public class App {
                         MenyVal2(elPriserInput, tidsintervall);
                         break;
                     case "3":
-                        MenyVal3(elPriserInput);
+                        MenyVal3(elPriserInput, tidsintervall);
                         break;
                     case "4":
                         MenyVal4(elPriserInput);
@@ -101,14 +101,41 @@ public class App {
 
 
 
-        public static void MenyVal3(int[] prices){
-            //System.out.print("Val 3\n");
+        public static void MenyVal3(int[] prices, String[] tidsintervall){
+
+            Integer[] index = new Integer[prices.length];
+            for (int i = 0; i < prices.length; i++) {
+                index[i] = i;
+            }
+            Arrays.sort(index, Comparator.comparingInt(i -> -prices[i]));
+
+
+            /*Arrays.sort(prices);
+            int n = prices.length;
+            for (int i = 0; i < prices.length/2; i++) {
+                int temp = prices[i];
+                prices[i] = prices[prices.length-1-i];
+                prices[prices.length-1-i] = temp;
+            }*/
+            for (int i = 0; i < prices.length; i++) {
+                System.out.print(tidsintervall[index[i]] + " " + prices[index[i]] + " öre\n");
+            }
+
         }
+
+
+
+
+
         public static void MenyVal4(int[] prices){
             //System.out.print("Val 4\n");
         }
 
     }
+
+
+
+
 
     class TimePrice{
     String time;
