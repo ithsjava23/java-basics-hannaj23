@@ -127,29 +127,23 @@ public class App {
 
 
 
-        public static void MenyVal4(int[] prices){
+        public static void MenyVal4(int[] prices) {
             //System.out.print("Val 4\n");
+
+            int lowest4hPrice = 0;
+            for (int i = 0; i < 4; i++) {
+                lowest4hPrice += prices[i];
+            }
+            int index = 0;
+            for (int i = 4; i < prices.length-4; i++) {
+                if (lowest4hPrice > (prices[i] + prices[i+1] + prices[i+2] + prices[i+3])) {
+                    lowest4hPrice = (prices[i] + prices[i+1] + prices[i+2] + prices[i+3]);
+                    index = i;
+                }
+            }
+            float averagePrice4h = lowest4hPrice/4f;
+
+            System.out.printf("Påbörja laddning klockan " + String.format("%02d", index) + "\n"
+                            + "Medelpris 4h: %.1f öre/kWh\n", averagePrice4h);
         }
-
-    }
-
-
-
-
-
-    class TimePrice{
-    String time;
-    int price;
-
-        public TimePrice (String time, int price) {
-            this.time = time;
-            this.price = price;
-        }
-
-
-
-
-    }
-
-
-//Här kan jag göra en ny klass, ej använda public när den är i samma här
+}
