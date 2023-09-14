@@ -85,7 +85,6 @@ public class App {
             System.out.print("Högsta pris: " + tidsintervall[indexBigPrice] + ", " + bigPrice + " öre/kWh\n");
 
 
-
             int sumPrices = 0;
             float averagePrice;
             for (int i = 0; i < elPriserInput.length; i++) {
@@ -93,9 +92,6 @@ public class App {
             }
             averagePrice = sumPrices / 24.0f;
             System.out.printf("Medelpris: %.2f öre/kWh\n", averagePrice);
-
-
-
             }
 
 
@@ -120,11 +116,7 @@ public class App {
             for (int i = 0; i < prices.length; i++) {
                 System.out.print(tidsintervall[index[i]] + " " + prices[index[i]] + " öre\n");
             }
-
         }
-
-
-
 
 
         public static void MenyVal4(int[] prices) {
