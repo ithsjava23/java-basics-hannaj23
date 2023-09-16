@@ -24,7 +24,6 @@ public class App {
                     case "2" -> MenyVal2(elPriserInput, tidsintervall);
                     case "3" -> MenyVal3(elPriserInput, tidsintervall);
                     case "4" -> MenyVal4(elPriserInput);
-                    case "e", "E" -> {}
                     default -> {
                     }
                 }
@@ -57,35 +56,28 @@ public class App {
 
             int minPrice = elPriserInput[0];
             int indexLowPrice = 0;
+            int bigPrice = elPriserInput[0];
+            int indexBigPrice = 0;
+            int sumPrices = 0;
+            float averagePrice;
             for (int i = 0; i < elPriserInput.length; i++) {
                 if (minPrice > elPriserInput[i]) {
                     minPrice = elPriserInput[i];
                     indexLowPrice = i;
                 }
-            }
-
-
-            int bigPrice = elPriserInput[0];
-            int indexBigPrice = 0;
-            for (int i = 0; i < elPriserInput.length; i++) {
                 if (bigPrice < elPriserInput[i]) {
                     bigPrice = elPriserInput[i];
                     indexBigPrice = i;
                 }
-            }
-
-            int sumPrices = 0;
-            float averagePrice;
-            for (int j : elPriserInput) {
-                sumPrices += j;
+                sumPrices += elPriserInput[i];
             }
             averagePrice = sumPrices / 24.0f;
 
             System.out.print("Lägsta pris: " + tidsintervall[indexLowPrice] + ", " + minPrice + " öre/kWh\n");
             System.out.print("Högsta pris: " + tidsintervall[indexBigPrice] + ", " + bigPrice + " öre/kWh\n");
             System.out.printf("Medelpris: %.2f öre/kWh\n", averagePrice);
-            }
 
+        }
 
         public static void MenyVal3(int[] prices, String[] tidsintervall){
 
